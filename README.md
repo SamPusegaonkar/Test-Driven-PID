@@ -10,10 +10,12 @@ A Repo for the PID class done using test driven development & pair programming
 - Sameer Pusegaonkar: Driver
 - Kavyashree Devadiga: Navigator
 
-## Standard install via command-line
+
+## Instructions to run the program.
+
+## 1st Method to Run: Standard install via command-line
 ```
-git clone --recursive https://github.com/SamPusegaonkar/Test-Driven-PID
-cd <path to repository>
+cd Test-Driven-PID
 mkdir build
 cd build
 cmake ..
@@ -22,33 +24,43 @@ Run tests: ./test/cpp-test
 Run program: ./app/shell-app
 ```
 
-## Building for code coverage (for assignments beginning in Week 4)
+## To run cpplint for the entire directory:
 ```
-sudo apt-get install lcov
-cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
-make
-make code_coverage
+Go outside the directory & run cpplint ~/Test-Driven-PID/*.* ~/Test-Driven-PID/*/*.*
+Or we can run cpplint on the 3 individual files:
+cd Test-Driven-PID
+cpplint ./app/main.cpp
+cpplint ./app/PID.cpp
+cpplint ./include/PID.h
+
+
 ```
-This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
 
-## Working with Eclipse IDE ##
+## To run cppcheck 
+```
+cd Test-Driven-PID
+cd app
+cppcheck ./app/main.cpp
+cppcheck ./app/PID.cpp
+cppcheck ./include/PID.h
+```
 
+## 2nd Method to Run: Using Eclipse IDE (Outdated)
 ## Installation
 
 In your Eclipse workspace directory (or create a new one), checkout the repo (and submodules)
 ```
 mkdir -p ~/workspace
 cd ~/workspace
-git clone --recursive https://github.com/SamPusegaonkar/Test-Driven-PID
+Paste the all the problem folders in ~/workspace
 ```
 
 In your work directory, use cmake to create an Eclipse project for an [out-of-source build] of cpp-boilerplate
 
 ```
 cd ~/workspace
-mkdir -p boilerplate-eclipse
 cd boilerplate-eclipse
-cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../<Repo Name>/
+cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../<directory>/
 ```
 
 ## Import
