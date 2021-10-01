@@ -4,7 +4,6 @@
  * @brief A header file to compute error for a PID Controller
  * @version 0.1
  * @date 2021-09-30
- * 
  * @copyright Copyright (c) 2021
  * 
  */
@@ -32,7 +31,6 @@ class PID {
   /**
    * @brief Computes & sets the proportional error using the target & current velocity of the system
    * to the proportional_error attribute
-   * 
    * @param target_velocity Target velocity of the system
    * @param current_velocity Current velocity of the system
    */
@@ -42,7 +40,6 @@ class PID {
   /**
    * @brief Computes & sets the integral error using the target & current velocity of the system
    * to the integral_error attribute
-   * 
    * @param target_velocity Target velocity of the system
    * @param current_velocity Current velocity of the system
    */
@@ -52,7 +49,6 @@ class PID {
   /**
    * @brief Computes & sets the differential error using the target & current velocity of the system
    * to the differential_error attribute
-   * 
    * @param target_velocity Target velocity of the system
    * @param current_velocity Current velocity of the system
    */
@@ -67,49 +63,42 @@ class PID {
 
   /**
    * @brief Returns the proportional constant 
-   * 
    * @return double: Proportional constant 
    */
   double GetKP();
 
   /**
    * @brief Returns the integral constant 
-   * 
    * @return double: Integral constant
    */
   double GetKI();
 
   /**
    * @brief Returns the differential constant 
-   * 
    * @return double: Differential constant
    */
   double GetKD();
 
   /**
    * @brief Updates the proportional constant attribute to _kp
-   * 
    * @param _kp : Proportional constant value to be set
    */
   void SetKP(double _kp);
 
   /**
    * @brief Updates the differential constant attribute to _kd
-   * 
    * @param _kd : Differential constant value to be set
    */
   void SetKD(double _kd);
 
   /**
    * @brief Updates the integral constant attribute to _ki
-   * 
    * @param _ki : Integral constant value to be set
    */
   void SetKI(double _ki);
 
   /**
    * @brief Invokes methods to calculte P-I-D error & returns the final error
-   * 
    * @param target_velocity  Target velocity of the system
    * @param current_velocity Current velocity of the system
    * @return double Final Error

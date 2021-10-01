@@ -9,3 +9,10 @@ build/
 
 # Python
 *.pyc
+
+#Doxygen 
+html/
+include/
+latex/
+Doxyfile
+Doxyfile.bak
