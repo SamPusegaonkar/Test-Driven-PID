@@ -12,8 +12,8 @@ TEST(Test_Driven_PID, test_the_default_constructor) {
 }
 
 /**
- * @brief Tests PID controller proportional gain keeping differential
- * and integral constants zero
+ * @brief Tests PID controller proportional gain, keeping differential
+ * and integral constants as 0
 */
 TEST(Test_Driven_PID, test_with_kp) {
   PID pid_controller;
