@@ -1,18 +1,18 @@
-# C++ Boilerplate
+# PID Controller
 [![Build Status](https://app.travis-ci.com/SamPusegaonkar/Test-Driven-PID.svg?branch=main)](https://app.travis-ci.com/SamPusegaonkar/Test-Driven-PID)
 [![Coverage Status](https://coveralls.io/repos/github/SamPusegaonkar/Test-Driven-PID/badge.svg?branch=main)](https://coveralls.io/github/SamPusegaonkar/Test-Driven-PID?branch=main)
 ---
 
 ## Overview
 
-Simple starter C++ project with:
+A Repo for the PID class done using test driven development & pair programming
 
-- cmake
-- googletest
+- Sameer Pusegaonkar: Driver
+- Kavyashree Devadiga: Navigator
 
 ## Standard install via command-line
 ```
-git clone --recursive https://github.com/dpiet/cpp-boilerplate
+git clone --recursive https://github.com/SamPusegaonkar/Test-Driven-PID
 cd <path to repository>
 mkdir build
 cd build
@@ -39,7 +39,7 @@ In your Eclipse workspace directory (or create a new one), checkout the repo (an
 ```
 mkdir -p ~/workspace
 cd ~/workspace
-git clone --recursive https://github.com/dpiet/cpp-boilerplate
+git clone --recursive https://github.com/SamPusegaonkar/Test-Driven-PID
 ```
 
 In your work directory, use cmake to create an Eclipse project for an [out-of-source build] of cpp-boilerplate
@@ -48,7 +48,7 @@ In your work directory, use cmake to create an Eclipse project for an [out-of-so
 cd ~/workspace
 mkdir -p boilerplate-eclipse
 cd boilerplate-eclipse
-cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../cpp-boilerplate/
+cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../<Repo Name>/
 ```
 
 ## Import
