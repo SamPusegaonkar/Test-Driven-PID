@@ -1,3 +1,14 @@
+/**
+ * @file test.cpp
+ * @author Sameer Pusegaonkar (sameer@umd.edu) - Driver, Kavyashree Devadiga (kavya@umd.edu) - Navigator 
+ * @brief A file to verify the methods of the PID class
+ * @version 0.1
+ * @date 2021-10-01
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <gtest/gtest.h>
 #include "PID.h"
 
@@ -38,13 +49,13 @@ TEST(Test_Driven_PID, test_with_kp_ki) {
    * ep = (0.35) = 1.5  && ei = (0.2)(5/1) = 1
    * (Δe) = 2.5 _____________ [5,2.5]
   */
-  EXPECT_NEAR(pid_controller.ComputeError(10,5), 2.5,0.001);
+  EXPECT_NEAR(pid_controller.ComputeError(10, 5), 2.5, 0.001);
   /**
    * Iteration 2
    * (Δe) = 2.5
    * ep = (0.32.5)  && ei = (0.2)(5+2.5/2)
    * (Δe) = 1.5 _____________ [5,2.5,1.5]
   */
-  EXPECT_NEAR(pid_controller.ComputeError(10,7.5), 1.5,0.01);
+  EXPECT_NEAR(pid_controller.ComputeError(10, 7.5), 1.5, 0.01);
 }
 
