@@ -119,7 +119,7 @@ ENDIF() # NOT CMAKE_BUILD_TYPE STREQUAL "Debug"
 
 
 # Param _targetname     The name of new the custom make target
-# Param _testrunner     The name of the target which runs the tests.
+# Param _testrunner     The name of the target which runs the tests
 #						MUST return ZERO always, even on errors.
 #						If not, no coverage report will be created!
 # Param _outputname     lcov output is generated as _outputname.info

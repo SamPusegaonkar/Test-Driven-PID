@@ -16,7 +16,7 @@ also an IRC channel on OFTC (irc.oftc.net) #gtest available.  Please
 join us!
 
 Getting started information for **Google Test** is available in the 
-[Google Test Primer](googletest/docs/Primer.md) documentation.
+[Google Test Primer](googletest/docs/Primer.md) documentation
 
 **Google Mock** is an extension to Google Test for writing and using C++ mock
 classes.  See the separate [Google Mock documentation](googlemock/README.md).

@@ -1,4 +1,4 @@
-# We need a decent ubuntu dist
+# We need a decent ubuntu distro
 sudo: required
 dist: xenial
 
