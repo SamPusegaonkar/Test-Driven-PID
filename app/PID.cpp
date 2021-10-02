@@ -7,16 +7,17 @@
  * @copyright Copyright (c) 2021
  */
 
+#include <numeric>
 #include "PID.h"
+#include <iostream>
 
 /**
   * @brief Construct a new PID object. Sets values of kp, ki, kd to 0
 */
 PID::PID() {
-  /**
-   * @todo Set the initial values of the private members of the class
-   * 
-   */
+  kp = 0.0;
+  ki = 0.0;
+  kd = 0.0;
 }
 
 /**
@@ -24,10 +25,7 @@ PID::PID() {
    * @return double: Proportional constant 
 */
 double PID::GetKP() {
-  /**
-   * @todo Should return the KP constant
-   */
-  return 0;
+  return kp;
 }
 
 /**
@@ -35,10 +33,7 @@ double PID::GetKP() {
  * @return double: Integral constant
  */
 double PID::GetKI() {
-  /**
-   * @todo Should return the KI constant
-   */
-  return 0;
+  return ki;
 }
 
 /**
@@ -54,9 +49,7 @@ double PID::GetKD() {
  * @param _kp : Proportional constant value to be set
  */
 void PID::SetKP(double _kp) {
-  /**
-   * @todo Set the constant KP
-   */
+  kp = _kp;
 }
 
 /**
@@ -64,9 +57,7 @@ void PID::SetKP(double _kp) {
  * @param _kd : Differential constant value to be set
  */
 void PID::SetKD(double _kd) {
-  /**
-   * @todo Set the constant KD
-   */
+  kd = _kd;
 }
 
 /**
@@ -74,9 +65,7 @@ void PID::SetKD(double _kd) {
  * @param _ki : Integral constant value to be set
  */
 void PID::SetKI(double _ki) {
-  /**
-   * @todo Set the constant KI
-   */
+  ki = _ki;
 }
 
 /**
@@ -87,9 +76,7 @@ void PID::SetKI(double _ki) {
  */
 void PID::ComputeProportionalError(
     double target_velocity, double current_velocity) {
-    /**
-     * @todo Compute proportional error by using the standard formula
-     */
+  proportional_error = kp * (target_velocity - current_velocity);
 }
 
 /**
@@ -100,10 +87,11 @@ void PID::ComputeProportionalError(
  */
 void PID::ComputeIntegralError(
     double target_velocity, double current_velocity) {
-    /**
-     * @todo Compute integral error by using the standard formula
-     * 
-     */
+  double error = target_velocity - current_velocity;
+  previous_errors.push_back(error);
+  double total_error = std::accumulate(previous_errors.begin(),
+                                        previous_errors.end(), 0.0);
+  integral_error = ki * total_error / previous_errors.size();
 }
 
 /**
@@ -114,22 +102,23 @@ void PID::ComputeIntegralError(
  */
 void PID::ComputeDifferentialError(
     double target_velocity, double current_velocity) {
-    /**
-     * @todo Compute differential error by using the standard formula
-     * 
-     */
+  if (previous_errors.size() > 1)
+    differential_error = kd * (previous_errors.rbegin()[1] -
+                              previous_errors.rbegin()[0]);
+  else
+    differential_error = 0.0;
 }
 
 /**
- * @brief Invokes methods to calculte P-I-D error & returns the final error
+ * @brief Invokes methods to calculate P-I-D error & returns the final error
  * @param target_velocity  Target velocity of the system
  * @param current_velocity Current velocity of the system
  * @return double Final Error
  */ 
 double PID::ComputeError(double target_velocity, double current_velocity) {
-  /**
-   * @todo Compute final error by using the standard formula
-   * 
-   */
-  return 0;
+  ComputeProportionalError(target_velocity, current_velocity);
+  ComputeIntegralError(target_velocity, current_velocity);
+  ComputeDifferentialError(target_velocity, current_velocity);
+  double correction = proportional_error + integral_error + differential_error;
+  return correction;
 }
