@@ -11,7 +11,7 @@
 #ifndef INCLUDE_PID_H_
 #define INCLUDE_PID_H_
 
-#include <queue>
+#include <vector>
 
 /**
  * @brief A class representing the PID controller
@@ -22,7 +22,7 @@ class PID {
   double kp;  ///< Variable to store the PID proportional constant
   double ki;  ///< Variable to store the PID integral constant
   double kd;  ///< Variable to store the PID differential constant
-  std::queue<double> previous_errors;  ///< Stores all the previous errors
+  std::vector<double> previous_errors;  ///< Stores all the previous errors
   double time_difference;  ///<  Delta time
   double integral_error;   ///< Stores current integral error
   double proportional_error;  ///< Stores current proportional error
