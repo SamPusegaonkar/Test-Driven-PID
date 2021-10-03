@@ -1,6 +1,7 @@
 /**
  * @file PID.cpp
- * @author Sameer Pusegaonkar (sameer@umd.edu) - Driver, Kavyashree Devadiga (kavya@umd.edu) - Navigator 
+ * @author (Part 1) Sameer Pusegaonkar (sameer@umd.edu) - Driver, Kavyashree Devadiga (kavya@umd.edu) - Navigator 
+ *         (Part 2) HrushiKesh Budhale - Driver, Sakshi Kakde - Navigator
  * @brief A file to define members of the PID class
  * @version 0.1
  * @date 2021-09-31
