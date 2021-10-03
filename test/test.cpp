@@ -55,7 +55,7 @@ TEST(Test_Driven_PID, test_with_kp_ki) {
    * ep = (0.3*2.5)  && ei = (0.2)(2.5+2.5/2)
    * (Δe) = 1.25 _____________ [2.5,1.25]
   */
-  EXPECT_NEAR(pid_controller.ComputeError(10, 7.5), 1.5, 0.01);
+  EXPECT_NEAR(pid_controller.ComputeError(10, 7.5), 1.25, 0.01);
 }
 
 /**
