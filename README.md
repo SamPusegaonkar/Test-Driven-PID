@@ -6,12 +6,12 @@
 ## Overview
 
 A Repo for the PID class done using test driven development & pair programming
-# Part 1
-    - Sameer Pusegaonkar: Driver
-    - Kavyashree Devadiga: Navigator
-# Part 2
-    - Hrushikesh Budhale: Driver
-    - Sakshi Kakde: Navigator
+### Part 1
+- Sameer Pusegaonkar: Driver
+- Kavyashree Devadiga: Navigator
+### Part 2
+- Hrushikesh Budhale: Driver
+- Sakshi Kakde: Navigator
 
 
 ## Instructions to run the program.
