@@ -9,7 +9,6 @@
 
 #include <numeric>
 #include "PID.h"
-#include <iostream>
 
 /**
   * @brief Construct a new PID object. Sets values of kp, ki, kd to 0
@@ -88,10 +87,12 @@ void PID::ComputeProportionalError(
 void PID::ComputeIntegralError(
     double target_velocity, double current_velocity) {
   double error = target_velocity - current_velocity;
-  previous_errors.push_back(error);
-  double total_error = std::accumulate(previous_errors.begin(),
-                                        previous_errors.end(), 0.0);
-  integral_error = ki * total_error / previous_errors.size();
+  double total_error = error;
+  if (previous_errors.size() > 0)
+    total_error += std::accumulate(previous_errors.begin(),
+                                   previous_errors.end(), 0.0);
+
+  integral_error = ki * total_error / (previous_errors.size()+1);
 }
 
 /**
@@ -102,8 +103,8 @@ void PID::ComputeIntegralError(
  */
 void PID::ComputeDifferentialError(
     double target_velocity, double current_velocity) {
-  if (previous_errors.size() > 1)
-    differential_error = kd * (previous_errors.rbegin()[1] -
+  if (previous_errors.size() > 0)
+    differential_error = kd * ((target_velocity - current_velocity) -
                               previous_errors.rbegin()[0]);
   else
     differential_error = 0.0;
@@ -120,5 +121,6 @@ double PID::ComputeError(double target_velocity, double current_velocity) {
   ComputeIntegralError(target_velocity, current_velocity);
   ComputeDifferentialError(target_velocity, current_velocity);
   double correction = proportional_error + integral_error + differential_error;
+  previous_errors.push_back(correction);
   return correction;
 }
