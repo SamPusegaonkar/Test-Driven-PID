@@ -11,6 +11,4 @@ build/
 *.pyc
 
 #Doxygen 
-html/
-latex/
-Doxyfile.bak
+
